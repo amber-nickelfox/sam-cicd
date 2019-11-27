@@ -5,7 +5,7 @@ phases:
         python: 3.7
   build:
     commands:
-      - export BUCKET=s3://mybucketcicd
+      - export BUCKET=mybucketcicd
       - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
 artifacts:
   type: zip
