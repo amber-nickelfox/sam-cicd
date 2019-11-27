@@ -2,12 +2,12 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-        nodejs: 10
+        python: 3.7
   build:
     commands:
-      - npm install time
-      - export BUCKET=lambda-deployment-artifacts-123456789012
-      - aws cloudformation package --template-file template.yml --s3-bucket $BUCKET --output-template-file outputtemplate.yml
+      - pip install -r requirements.txt
+      - export BUCKET=s3://mybucketcicd/ea1209d7e82956cc6f20e59dffce0c94
+      - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
 artifacts:
   type: zip
   files:
